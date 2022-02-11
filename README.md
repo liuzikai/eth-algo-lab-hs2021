@@ -19,6 +19,8 @@ The problem descriptions are copyrighted by the ETH Algorithms Lab staff.
 
 ![AlgoLab](algolab-hs21.png)
 
+## Table of Problems
+
 * BFS: breadth first search
 * DAG: directed acyclic graph
 * DFS: depth first search
@@ -94,4 +96,134 @@ The problem descriptions are copyrighted by the ETH Algorithms Lab staff.
 | [13](week13)           | [Hand](week13/hand/hand.cpp)                                                                         | 100   | Growing disks + greedy                              |
 | [13](week13)           | [Ludo Bagman](week13/ludo_bagman/ludo_bagman.cpp)                                                    | 100   | Min cost max flow                                   |
 | [PotW 14](potw14)      | [India](potw14/india.cpp)                                                                            | 100   | Min cost max flow + binary search                   |
+
+## Algo Lab Buzzwords
+For my own memo.
+
+* C++ 14
+    * ios::sync_with_stdio
+    * Sort
+        * Accessing external array can be slow
+    * Random shuffle
+    * Tuple
+    * Priority queue
+    * Vector may be ~4x faster than unordered_map
+    * Multiset 
+* Boost union-find set
+* Binary search
+    * Don’t blindly estimate the time complexity
+    * Think reversely, especially for satisfiability problem. What is the worse case. [Week12 On Her Majesty]
+    * Be careful when choosing more has negative effect [Week5 Severus Shape]
+* Sliding window for consecutive sequence
+* Parallel sorted lists walk through
+    * In merge sort
+    * Set union/intersection [Week3 Buddy Selection]
+* Dynamic programming
+    * Symmetric indexing
+    * Encode only necessary states [PotW4 Fighting Pits]
+        * For >= condition, clip to the maximum [Week5 Severus Snape]
+    * Backpack problems/rot cutting [Tutorial2 DP]
+        * Infinite backpack → Iterates with increasing capacity to make use of previous results already using the item [Week13 Punch]
+    * Longest increasing subsequence [Tutorial2 DP]
+    * DP on DAG [Week10 Switzerland]
+* Greedy
+    * Iterative → a choice affects the next choice
+    * Exchange argument
+    * Stay ahead argument
+        * Earliest end time → Current solution is equally good, future solution is at least equally good [Tutorial5 Greedy] 
+            * Stop single choice when compatible [Week5 Boats]
+* Split and list
+* CGAL
+    * Kernels and number types
+        * Choose the kernel → EPEC ~2-3x than EPIC → avoid construction
+        * K::FT
+        * Floor/ceil K::FT to double [Tutorial3 CGAL]
+            * Overflow below 0
+    * Point, segment, line, ray, triangle
+    * Intersection
+        * Shrinking ray [Week3 FirstHit]
+    * Square distance & comparison
+        * Point to line: ax + by + c / sqrt(a^2 + b^2) [Week11 Legions]
+    * Compare slopes
+    * Collinear order
+    * Minimal circle
+    * Orientation test
+        * Check inbound → unify orientation at construction [Week3 Hiking Maps]
+    * Proximity structure
+        * Delaunay triangulation
+            * Batch construction in CGAL (with labels)
+            * Nearest vertex
+                * Vertex to point
+            * Locate point in face
+            * Iterations
+                * Iterator/Circulator/Handle
+                * Incident faces/edges/vertices
+            * Euclidean minimal spanning tree
+            * Growing disks
+                * Disjoint set for connectivity
+                * Pushy maximum [PotW10 Golden Eye]
+                * Be careful of collinear [PotW11] →  iterate incident edges
+        * Voronoi diagram
+    * Linear programming
+        * O(min{m, n})
+        * Input type & exact type
+            * Floor/ceil Quotient<ET>
+        * Minimize objective function → maximize negated coefficient
+        * Maximize inbound ball [Week6 Inball]
+* BGL
+    * Adjacency list
+        * Weighted graph
+        * Property map
+        * Iterate vertex/edge
+    * Depth/Breath first search
+        * Coloring
+        * Continuous path during DFS → binary search [Week10 Evolution]
+    * Single-source shortest path (Dijkstra)
+    * Minimum spanning tree (Kruskal)
+    * Strong components (Tarjan)
+    * Biconnected components
+    * Articulation points (cut vertices)
+    * Articulation edges (bridges, cut edges) → Biconnected components with only one edge [Week4 Important Bridges]
+    * Maximum matching (Edmonds)
+        * Can be alternative to min cost max flow, providing more control on weights more than the sum [Week12 On Her Majesty]
+    * Check bipartite
+    * Max flow
+        * Undirected graph → same reversed capacity/add edge twice
+        * Multiple sources/targets → meta-source/sink
+        * Node capacity → split node into two
+        * Minimal flow constraints → virtual flow out and in
+        * Edge-disjoint paths → capacity on edge
+        * Tournament/Use something at most n times → edge capacity of n
+        * Max independent set/min vertex cover on bipartite graphs [Tutorial9 Advanced Flows]
+            * Graph construction: source => S => V => sink
+            * BFS on residue graph
+        * Directed min cut [Tutorial9 Advanced Flows]
+            * BFS on residual graph for partition 
+            * Iterate cut edges (non-negative cost) from S to V
+            * Exist s ∈ S, t ∈ T [Week9 Algocoön]
+    * Min cost max flow
+        * Cycle cancelling
+        * Successive shortest path (1E3 - 1E5 nodes)
+            * Transformation to eliminate negative weights
+                * Add a fixed amount on some edges
+                * Offset every s-t path by the same amount → offset each edge by its span on an accumulative value [Week12 Car Sharing]
+        * Cost threshold → capacity threshold → binary search
+        * Min cost bipartite matching
+
+
+Time Management
+* Read all the problems. Choose the easiest one.
+* Read the problem.
+* Read the problem again.
+* Check understanding against the provided examples.
+    * It is much much more difficult to change your mind afterwards.
+* Think. Alternative algorithms as well.
+* Analyze run time carefully.
+* Static debug
+    * CGAL kernel
+    * Variable shadowing
+    * Copy-and-paste errors
+    * Start index 0 or 1
+    * Edge cases
+
 
