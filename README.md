@@ -2,13 +2,13 @@ ETH Algorithms Lab HS2021
 =========================
 
 My solutions of ETH ~~Olympiad in Informatics~~ Algorithms Lab HS2021. 
-Problems are summarized in the table below and explained with the header comments in source files.
+Problems are summarized in the table below and explained with the **header comments** in source files.
 
 In such a course, code quality is not the first priority. 
 You may see bad coding styles in these files, 
 such as inconsistent naming, bad indentation, untidy mixture of arrays and STL containers, etc.
 It's not really my coding style. 
-Instead, my idea is to copy-and-paste the provided tutorial sample code whenever possible,
+Instead, my idea is to copy-and-paste the provided tutorial sample code (also available in the exam as a part of documentations) whenever possible,
 and I would recommend you to do the same as well.
 
 These files are intended to provide some inspiration if you get stuck on the problems and have
